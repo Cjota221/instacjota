@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Instagram — CJ Rasteirinhas</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --pink:#ed0b8c;
+  --pink-10:rgba(237,11,140,0.08);
+  --pink-20:rgba(237,11,140,0.15);
+  --pink-light:#fdf0f8;
+  --neon:#e4ef25;
+  --text:#111118;
+  --text-2:#5a5870;
+  --text-3:#9896aa;
+  --bg:#ffffff;
+  --bg-2:#fafaf9;
+  --bg-3:#f4f3f8;
+  --border:rgba(0,0,0,0.07);
+  --border-pink:rgba(237,11,140,0.18);
+  --green:#16a34a;
+  --green-bg:#f0fdf4;
+  --blue:#1d4ed8;
+  --blue-bg:#eff6ff;
+  --amber:#d97706;
+  --amber-bg:#fffbeb;
+  --red:#dc2626;
+  --red-bg:#fff5f5;
+  --purple:#7c3aed;
+  --purple-bg:#f5f3ff;
+  --r:14px;
+  --r-sm:10px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg-2);color:var(--text);font-size:15px;line-height:1.6;}
+
+/* HEADER */
+.hdr{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.hdr-in{max-width:1100px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.hdr-brand{display:flex;align-items:center;gap:10px;}
+.hdr-dot{width:32px;height:32px;background:var(--pink);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.hdr-dot svg{width:16px;height:16px;fill:white;}
+.hdr-name{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--text);}
+.hdr-name span{color:var(--pink);}
+.hdr-nav{display:flex;gap:2px;}
+.hdr-nav a{font-size:12px;font-weight:500;color:var(--text-3);padding:5px 11px;border-radius:20px;text-decoration:none;transition:.15s;}
+.hdr-nav a:hover{background:var(--bg-3);color:var(--text);}
+.hdr-tag{font-size:11px;font-weight:600;background:var(--pink-10);color:var(--pink);padding:5px 12px;border-radius:20px;white-space:nowrap;}
+@media(max-width:650px){.hdr-nav{display:none;}.hdr-tag{display:none;}}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:32px 24px 72px;}
+@media(max-width:700px){.page{padding:20px 16px 56px;}}
+section{margin-bottom:52px;}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-lbl{font-family:'Sora',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:var(--border-pink);}
+
+/* HERO */
+.hero{background:var(--bg);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 20px rgba(237,11,140,0.06);}
+.hero-top{background:var(--pink-light);padding:28px 28px 24px;border-bottom:1px solid var(--border-pink);}
+.hero-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;}
+.hero-profile{display:flex;align-items:center;gap:14px;}
+.hero-av{width:50px;height:50px;background:var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:16px;font-weight:800;color:white;flex-shrink:0;border:3px solid white;box-shadow:0 0 0 2px var(--pink);}
+.hero-handle{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--text);}
+.hero-sub{font-size:12px;color:var(--text-2);margin-top:2px;}
+.hero-badge{background:var(--pink);color:white;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;white-space:nowrap;}
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.kpi{background:white;border:1px solid var(--border);border-radius:11px;padding:14px 12px;text-align:center;}
+.kpi.kpi-hero{background:var(--pink);border-color:var(--pink);}
+.kpi-v{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--text);line-height:1;display:block;}
+.kpi.kpi-hero .kpi-v{color:white;}
+.kpi-v sup{font-size:11px;font-weight:600;color:var(--pink);}
+.kpi.kpi-hero .kpi-v sup{color:var(--neon);}
+.kpi-l{font-size:10px;color:var(--text-3);margin-top:5px;display:block;line-height:1.3;}
+.kpi.kpi-hero .kpi-l{color:rgba(255,255,255,.7);}
+@media(max-width:860px){.kpi-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:480px){.kpi-grid{grid-template-columns:repeat(2,1fr);}.hero-top{padding:20px;}.hero-handle{font-size:15px;}}
+
+/* ALERT */
+.alert{background:var(--red-bg);border:1px solid rgba(220,38,38,0.2);border-left:3px solid var(--red);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:0;}
+.alert-ic{width:36px;height:36px;background:rgba(220,38,38,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.alert-ic svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;}
+.alert-title{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--red);margin-bottom:4px;}
+.alert-body{font-size:13px;color:#7f1d1d;line-height:1.55;}
+.alert-body strong{font-weight:600;}
+
+/* TIPO CARDS */
+.tipos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.tipo-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:20px 18px;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;}
+.tipo-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.08);transform:translateY(-2px);}
+.tc-stripe{position:absolute;top:0;left:0;right:0;height:3px;}
+.tc-g .tc-stripe{background:var(--green);}
+.tc-b .tc-stripe{background:var(--blue);}
+.tc-a .tc-stripe{background:var(--amber);}
+.tc-p .tc-stripe{background:var(--pink);}
+.tc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.tc-g .tc-icon{background:var(--green-bg);}
+.tc-b .tc-icon{background:var(--blue-bg);}
+.tc-a .tc-icon{background:var(--amber-bg);}
+.tc-p .tc-icon{background:var(--pink-light);}
+.tc-icon svg{width:17px;height:17px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.tc-g .tc-icon svg{stroke:var(--green);}
+.tc-b .tc-icon svg{stroke:var(--blue);}
+.tc-a .tc-icon svg{stroke:var(--amber);}
+.tc-p .tc-icon svg{stroke:var(--pink);}
+.tc-nome{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.tc-desc{font-size:12px;color:var(--text-2);line-height:1.55;margin-bottom:12px;}
+.tc-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.02em;}
+.tg{background:var(--green-bg);color:#166534;}
+.tb{background:var(--blue-bg);color:#1e40af;}
+.ta{background:var(--amber-bg);color:#92400e;}
+.tr{background:var(--red-bg);color:#991b1b;}
+.tp{background:var(--pink-light);color:#9d174d;}
+@media(max-width:860px){.tipos-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.tipos-grid{grid-template-columns:1fr;}}
+
+/* REELS */
+.reels-list{display:flex;flex-direction:column;gap:10px;}
+.rr{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;transition:box-shadow .2s;}
+.rr:hover{box-shadow:0 4px 16px rgba(0,0,0,0.07);}
+.rr-top{border-left:3px solid var(--pink);}
+.rr-danger{border-left:3px solid var(--red);background:var(--red-bg);}
+.rr-star{border-left:3px solid var(--blue);background:var(--blue-bg);}
+.rr-tipo{margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.rr-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px;line-height:1.4;}
+.rr-stats{display:flex;gap:14px;flex-wrap:wrap;}
+.rs{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-2);}
+.rs svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;}
+.rs strong{font-weight:600;color:var(--text);}
+.rs.rsp strong{color:var(--pink);}
+.rs.rsb strong{color:var(--blue);}
+.rs.rsr strong{color:var(--red);}
+.rr-badge{text-align:right;flex-shrink:0;}
+
+/* CALENDÁRIO */
+.cal-wrap{background:var(--bg);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(237,11,140,0.05);}
+.cal-hdr{background:var(--pink-light);border-bottom:1px solid var(--border-pink);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.cal-hdr-t{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--text);}
+.cal-hdr-s{font-size:12px;color:var(--text-2);margin-top:2px;}
+.cal-totals{display:flex;gap:20px;flex-shrink:0;}
+.cal-tot-v{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:var(--pink);line-height:1;}
+.cal-tot-l{font-size:10px;color:var(--text-3);margin-top:2px;}
+@media(max-width:500px){.cal-totals{display:none;}}
+.cal-leg{padding:12px 24px;background:var(--bg-2);border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;}
+.leg-i{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-2);font-weight:500;}
+.leg-d{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.cal-cols-hdr{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border);background:var(--bg);}
+.cal-dn{font-family:'Sora',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pink);text-align:center;padding:10px 4px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-col{border-right:1px solid var(--border);display:flex;flex-direction:column;gap:6px;padding:10px 6px;}
+.cal-col:last-child{border-right:none;background:var(--bg-2);}
+.sl{border-radius:9px;padding:8px 9px;}
+.sl-t{font-family:'Sora',sans-serif;font-size:9px;font-weight:700;margin-bottom:2px;display:flex;align-items:center;gap:3px;}
+.sl-td{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.sl-tipo{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+.sl-desc{font-size:9px;opacity:.7;line-height:1.3;}
+.sl-fmt{font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:1px 5px;border-radius:20px;display:inline-block;margin-top:4px;opacity:.85;}
+.sl-em{background:var(--pink-light);color:#9d174d;}
+.sl-em .sl-td{background:var(--pink);}
+.sl-em .sl-fmt{background:rgba(237,11,140,0.12);color:var(--pink);}
+.sl-b2{background:var(--blue-bg);color:#1e40af;}
+.sl-b2 .sl-td{background:var(--blue);}
+.sl-b2 .sl-fmt{background:rgba(29,78,216,0.1);color:var(--blue);}
+.sl-pr{background:var(--green-bg);color:#166534;}
+.sl-pr .sl-td{background:var(--green);}
+.sl-pr .sl-fmt{background:rgba(22,163,74,0.1);color:var(--green);}
+.sl-ca{background:var(--amber-bg);color:#92400e;}
+.sl-ca .sl-td{background:var(--amber);}
+.sl-ca .sl-fmt{background:rgba(217,119,6,0.1);color:var(--amber);}
+.sl-en{background:var(--purple-bg);color:#5b21b6;}
+.sl-en .sl-td{background:var(--purple);}
+.sl-en .sl-fmt{background:rgba(124,58,237,0.1);color:var(--purple);}
+.sl-rest{border-radius:9px;padding:10px 6px;background:var(--bg-3);text-align:center;font-size:9px;color:var(--text-3);min-height:56px;display:flex;align-items:center;justify-content:center;font-style:italic;line-height:1.4;}
+@media(max-width:700px){.sl-desc{display:none;}.sl{padding:6px;}.sl-t{font-size:8px;}.sl-tipo{font-size:7px;}.cal-col{padding:7px 4px;gap:4px;}}
+@media(max-width:480px){.cal-dn{font-size:8px;padding:8px 2px;}.sl-t{display:none;}}
+
+/* MELHORA */
+.melhora-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.mc{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:22px;}
+.mc.pos{border-top:3px solid var(--green);}
+.mc.neg{border-top:3px solid var(--red);}
+.mc.verd{border-top:3px solid var(--pink);grid-column:1/-1;}
+.mc-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.mc-ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mc-ic svg{width:16px;height:16px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.pos .mc-ic{background:var(--green-bg);}
+.pos .mc-ic svg{stroke:var(--green);}
+.neg .mc-ic{background:var(--red-bg);}
+.neg .mc-ic svg{stroke:var(--red);}
+.verd .mc-ic{background:var(--pink-light);}
+.verd .mc-ic svg{stroke:var(--pink);}
+.mc-title{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--text);}
+.mc-items{display:flex;flex-direction:column;gap:9px;}
+.mc-item{font-size:12.5px;color:var(--text-2);line-height:1.55;padding-left:14px;position:relative;}
+.mc-item::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;}
+.pos .mc-item::before{background:var(--green);}
+.neg .mc-item::before{background:var(--red);}
+.verd .mc-item::before{background:var(--pink);}
+.mc-item strong{font-weight:600;color:var(--text);}
+@media(max-width:700px){.melhora-grid{grid-template-columns:1fr;}.mc.verd{grid-column:auto;}}
+
+/* AÇÕES */
+.acoes-list{display:flex;flex-direction:column;gap:10px;}
+.ac{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px 18px;display:flex;gap:16px;align-items:flex-start;}
+.ac.urg{border-left:3px solid var(--red);}
+.ac.imp{border-left:3px solid var(--amber);}
+.ac.ok{border-left:3px solid var(--green);}
+.ac-num{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;width:28px;flex-shrink:0;line-height:1;margin-top:2px;color:var(--bg-3);}
+.urg .ac-num{color:var(--red);}
+.imp .ac-num{color:var(--amber);}
+.ok .ac-num{color:var(--green);}
+.ac-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:5px;}
+.urg .ac-tag{background:var(--red-bg);color:var(--red);}
+.imp .ac-tag{background:var(--amber-bg);color:var(--amber);}
+.ok .ac-tag{background:var(--green-bg);color:var(--green);}
+.ac-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.ac-desc{font-size:12px;color:var(--text-2);line-height:1.55;}
+.ac-desc strong{font-weight:600;color:var(--text);}
+
+/* METAS */
+.metas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.meta-c{background:var(--pink);border-radius:var(--r);padding:22px 18px;position:relative;overflow:hidden;}
+.meta-c::after{content:'';position:absolute;bottom:-20px;right:-20px;width:90px;height:90px;background:radial-gradient(circle,rgba(255,255,255,.15) 0%,transparent 70%);}
+.meta-v{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:white;line-height:1;margin-bottom:5px;}
+.meta-l{font-size:12px;color:rgba(255,255,255,.75);}
+.meta-s{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;}
+@media(max-width:700px){.metas-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* FOOTER */
+.ftr{background:var(--pink-light);border-top:1px solid var(--border-pink);padding:24px;text-align:center;}
+.ftr-t{font-size:12px;color:var(--text-2);}
+.ftr-t strong{color:var(--pink);}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-brand">
+      <div class="hdr-dot"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"/></svg></div>
+      <div class="hdr-name">CJ <span>Rasteirinhas</span></div>
+    </div>
+    <nav class="hdr-nav">
+      <a href="#visao">Visão geral</a>
+      <a href="#conteudos">Conteúdos</a>
+      <a href="#calendario">Calendário</a>
+      <a href="#analise">Análise</a>
+      <a href="#acoes">Ações</a>
+    </nav>
+    <div class="hdr-tag">Maio 2026</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section id="visao">
+    <div class="hero">
+      <div class="hero-top">
+        <div class="hero-row">
+          <div class="hero-profile">
+            <div class="hero-av">CJ</div>
+            <div>
+              <div class="hero-handle">@cjotarasteirinhas</div>
+              <div class="hero-sub">Análise de performance · últimos 30 dias</div>
+            </div>
+          </div>
+          <div class="hero-badge">Maio 2026</div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi kpi-hero"><span class="kpi-v">528<sup>k</sup></span><span class="kpi-l">Visualizações totais</span></div>
+          <div class="kpi"><span class="kpi-v">170<sup>k</sup></span><span class="kpi-l">Contas alcançadas</span></div>
+          <div class="kpi"><span class="kpi-v">4,6<sup>%</sup></span><span class="kpi-l">Taxa de engajamento</span></div>
+          <div class="kpi"><span class="kpi-v">8,1<sup>k</sup></span><span class="kpi-l">Visitas ao perfil</span></div>
+          <div class="kpi"><span class="kpi-v">2,3<sup>k</sup></span><span class="kpi-l">Toques no link</span></div>
+          <div class="kpi"><span class="kpi-v">121<sup>k</sup></span><span class="kpi-l">Seguidores</span></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="alert">
+      <div class="alert-ic"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <div>
+        <div class="alert-title">Alerta: Facebook crosspost distorcendo os números</div>
+        <div class="alert-body">O Reel da Gessyka aparecia como <strong>13.581 views</strong> — mas <strong>12.611 vieram do Facebook automático</strong>. No Instagram real: apenas 738 views, zero saves, zero seguidores. Solução: Configurações → Contas vinculadas → Facebook → desativar compartilhamento automático.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS -->
+  <section id="conteudos">
+    <div class="sec-hd"><span class="sec-lbl">Os 4 tipos de conteúdo</span><div class="sec-line"></div></div>
+    <div class="tipos-grid">
+      <div class="tipo-card tc-g">
+        <div class="tc-stripe"></div>
+        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <div class="tc-nome">Conversão real</div>
+        <div class="tc-desc">Bastidores emocionais com Carol como protagonista. Único formato que converte view em seguidora e revendedora de verdade.</div>
+        <div class="tc-tags"><span class="tag tg">Gera seguidores</span><span class="tag tg">Saves altos</span><span class="tag tg">Shares</span></div>
+      </div>
+      <div class="tipo-card tc-b">
+        <div class="tc-stripe"></div>
+        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="tc-nome">Qualificação B2B</div>
+        <div class="tc-desc">Educativo sobre atacado, precificação e como revender. Maior taxa de save por view (0,45%). Atrai lead com intenção real de negócio.</div>
+        <div class="tc-tags"><span class="tag tb">Lead qualificado</span><span class="tag tb">Alta intenção</span></div>
+      </div>
+      <div class="tipo-card tc-a">
+        <div class="tc-stripe"></div>
+        <div class="tc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <div class="tc-nome">Engraçado / Identificação</div>
+        <div class="tc-desc">Humor de MEI. Gera alcance e compartilhamento, mas 9–10k views com zero seguidores. Use com estratégia e sempre com CTA no final.</div>
+        <div class="tc-tags"><span class="tag ta">Alto alcance</span><span class="tag tr">Baixa conversão</span></div>
+      </div>
+      <div class="tipo-card tc-p">
+        <div class="tc-stripe"></div>
+        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="tc-nome">Prova social</div>
+        <div class="tc-desc">Revendedora em câmera com o pedido recebido. Alta autenticidade, gera identificação em quem pensa em começar a revender.</div>
+        <div class="tc-tags"><span class="tag tg">Autenticidade</span><span class="tag tp">Identificação</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REELS -->
+  <section>
+    <div class="sec-hd"><span class="sec-lbl">Performance dos principais Reels</span><div class="sec-line"></div></div>
+    <div class="reels-list">
+      <div class="rr rr-top">
+        <div>
+          <div class="rr-tipo"><span class="tag tg">Conversão real</span><span style="font-size:11px;color:var(--text-3);">Melhor Reel do mês</span></div>
+          <div class="rr-title">Fechamos a loja física / Voltamos pra casa</div>
+          <div class="rr-stats">
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>15.593</strong>&nbsp;views</div>
+            <div class="rs rsp"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>36</strong>&nbsp;saves</div>
+            <div class="rs rsp"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><strong>27</strong>&nbsp;shares</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>+10</strong>&nbsp;seguidores</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><strong>10</strong>&nbsp;visitas perfil</div>
+          </div>
+        </div>
+        <div class="rr-badge" style="font-size:22px;">&#x1F451;</div>
+      </div>
+      <div class="rr rr-top">
+        <div>
+          <div class="rr-tipo"><span class="tag tg">Conversão real</span></div>
+          <div class="rr-title">Fechamos nossa Loja física (versão 2)</div>
+          <div class="rr-stats">
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>12.034</strong>&nbsp;views</div>
+            <div class="rs rsp"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>24</strong>&nbsp;saves</div>
+            <div class="rs rsp"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><strong>19</strong>&nbsp;shares</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>+7</strong>&nbsp;seguidores</div>
+          </div>
+        </div>
+        <div class="rr-badge"></div>
+      </div>
+      <div class="rr rr-danger">
+        <div>
+          <div class="rr-tipo"><span class="tag tr">93% vieram do Facebook</span></div>
+          <div class="rr-title">Pedido Revendedora Gessyka</div>
+          <div class="rr-stats">
+            <div class="rs rsr"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>738</strong>&nbsp;views reais no IG</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>0</strong>&nbsp;saves</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>0</strong>&nbsp;seguidores</div>
+          </div>
+        </div>
+        <div class="rr-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      </div>
+      <div class="rr">
+        <div>
+          <div class="rr-tipo"><span class="tag ta">Engraçado</span><span style="font-size:11px;color:var(--text-3);">Views mas zero conversão</span></div>
+          <div class="rr-title">Eu sou todos os setores da empresa</div>
+          <div class="rr-stats">
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>9.634</strong>&nbsp;views</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>10</strong>&nbsp;saves</div>
+            <div class="rs rsr"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>0</strong>&nbsp;seguidores</div>
+            <div class="rs rsr"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><strong>0</strong>&nbsp;visitas perfil</div>
+          </div>
+        </div>
+        <div class="rr-badge"></div>
+      </div>
+      <div class="rr rr-star">
+        <div>
+          <div class="rr-tipo"><span class="tag tb">B2B qualificado</span><span style="font-size:11px;color:var(--blue);">Maior save/view da conta — 0,45%</span></div>
+          <div class="rr-title">Você sabe quanto custa Vender seu produto?</div>
+          <div class="rr-stats">
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>2.418</strong>&nbsp;views</div>
+            <div class="rs rsb"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>11</strong>&nbsp;saves</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>+1</strong>&nbsp;seguidor</div>
+          </div>
+        </div>
+        <div class="rr-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      </div>
+      <div class="rr">
+        <div>
+          <div class="rr-tipo"><span class="tag tb">B2B qualificado</span><span style="font-size:11px;color:var(--text-3);">Hook precisa de melhora</span></div>
+          <div class="rr-title">Procurando Fornecedor de Rasteirinhas?</div>
+          <div class="rr-stats">
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><strong>2.232</strong>&nbsp;views</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><strong>3</strong>&nbsp;saves</div>
+            <div class="rs"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>+2</strong>&nbsp;seguidores</div>
+          </div>
+        </div>
+        <div class="rr-badge"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDÁRIO -->
+  <section id="calendario">
+    <div class="sec-hd"><span class="sec-lbl">Calendário semanal de conteúdo</span><div class="sec-line"></div></div>
+    <div class="cal-wrap">
+      <div class="cal-hdr">
+        <div>
+          <div class="cal-hdr-t">Agenda semanal — 6 conteúdos por dia</div>
+          <div class="cal-hdr-s">4 Reels + 2 Carrosséis · Horários: 9h · 11h · 13h · 15h · 18h · 20h</div>
+        </div>
+        <div class="cal-totals">
+          <div class="cal-tot"><div class="cal-tot-v">4</div><div class="cal-tot-l">Reels/dia</div></div>
+          <div class="cal-tot"><div class="cal-tot-v">2</div><div class="cal-tot-l">Carrosséis/dia</div></div>
+        </div>
+      </div>
+      <div class="cal-leg">
+        <div class="leg-i"><div class="leg-d" style="background:var(--pink)"></div>Bastidores emocional</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--blue)"></div>B2B educativo</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--green)"></div>Prova social</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--amber)"></div>Carrossel produto</div>
+        <div class="leg-i"><div class="leg-d" style="background:var(--purple)"></div>Engraçado / identificação</div>
+      </div>
+      <div class="cal-cols-hdr">
+        <div class="cal-dn">Segunda</div><div class="cal-dn">Terça</div><div class="cal-dn">Quarta</div>
+        <div class="cal-dn">Quinta</div><div class="cal-dn">Sexta</div><div class="cal-dn">Sábado</div>
+        <div class="cal-dn">Domingo</div>
+      </div>
+      <div class="cal-grid">
+        <!-- SEG -->
+        <div class="cal-col">
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Rotina da manhã / reconstruindo</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">3 modelos mais vendidos</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Quanto preciso pra começar?</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Pedido revendedora em câmera</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Lançamento + preço atacado</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Reflexão / vitória do dia</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- TER -->
+        <div class="cal-col">
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora + cidade de origem</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Como precificar sua revenda</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Situação cômica MEI</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Processo de fabricação</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Personalização com sua marca</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Dá pra vender no interior?</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- QUA -->
+        <div class="cal-col">
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Desafio da semana / superação</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Tendências da coleção</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora mostra como vende</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Como funciona o frete atacado</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Modelos + variações de cor</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">O que aprendi essa semana</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- QUI -->
+        <div class="cal-col">
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Fornecedor errado = prejuízo</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Antes e depois da revendedora</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Pedido especial sendo preparado</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">POV: você é todos os depts.</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Sandálias + preço por atacado</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora de outro estado</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- SEX -->
+        <div class="cal-col">
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Novidades da reconstrução</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Quanto lucra uma revendedora?</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Depoimento em câmera</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Pedido mínimo e como funciona</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Coleção destaque da semana</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Sexta do empreendedor</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- SAB -->
+        <div class="cal-col">
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Pedido chegando na revendedora</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Os mais pedidos do mês</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Embalando pedidos / rotina</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Private label — sua marca</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Novidades chegando</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Semana em retrospecto</div><span class="sl-fmt">Reel</span></div>
+        </div>
+        <!-- DOM -->
+        <div class="cal-col">
+          <div class="sl-rest">Domingo livre — planejamento e gravações da semana seguinte</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANÁLISE -->
+  <section id="analise">
+    <div class="sec-hd"><span class="sec-lbl">A gente melhorou? O que ainda falta?</span><div class="sec-line"></div></div>
+    <div class="melhora-grid">
+      <div class="mc pos">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mc-title">O que melhorou</div></div>
+        <div class="mc-items">
+          <div class="mc-item"><strong>Engajamento 4,6%</strong> — acima do benchmark de 1,5–3,5% para contas de 100k+.</div>
+          <div class="mc-item"><strong>Reel emocional viralizou de verdade</strong> — 36 saves, 27 shares, 10 seguidores. Melhor resultado histórico recente.</div>
+          <div class="mc-item"><strong>Frequência consistente</strong> — 5–8 posts/semana mantida sem queda de qualidade.</div>
+          <div class="mc-item"><strong>28% conversão perfil → link</strong> — 2.296 cliques de 8.175 visitas. O gargalo é volume, não conversão.</div>
+          <div class="mc-item"><strong>Conteúdo B2B aparecendo</strong> — save rate de 0,45%/view no educativo. É o caminho certo.</div>
+        </div>
+      </div>
+      <div class="mc neg">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="mc-title">O que ainda não funciona</div></div>
+        <div class="mc-items">
+          <div class="mc-item"><strong>Views de vaidade</strong> — Reels de humor com 9–10k views geram zero seguidores e zero visitas ao perfil.</div>
+          <div class="mc-item"><strong>Stories mortos</strong> — 0,8% de interação. 44 interações no mês com 121k seguidores prejudica o alcance de tudo.</div>
+          <div class="mc-item"><strong>Facebook crosspost inflando dados</strong> — 93% das views do Gessyka vieram do Facebook. Dados falsos.</div>
+          <div class="mc-item"><strong>Bio sem CTA visível</strong> — o CTA mais importante fica atrás do "ver mais". Quem chega pelo Reel não expande.</div>
+          <div class="mc-item"><strong>Produto sub-representado</strong> — menos de 15% dos posts fala do produto ou do processo de revenda.</div>
+        </div>
+      </div>
+      <div class="mc verd">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="mc-title">Veredicto — a mudança está funcionando, com um asterisco importante</div></div>
+        <div class="mc-items">
+          <div class="mc-item">A estratégia emocional provou funcionar — o Reel da loja física é a prova. O problema não é o tipo de conteúdo, é o <strong>equilíbrio e o fechamento do arco para o negócio</strong>. Todo Reel emocional precisa terminar com uma porta de entrada para o atacado.</div>
+          <div class="mc-item">O próximo passo não é criar conteúdo diferente — é <strong>fazer o mesmo que já funciona + CTA claro + mais B2B educativo</strong>. A conta já sabe distribuir. Falta apontar essa audiência para dentro do funil de revendedoras.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AÇÕES -->
+  <section id="acoes">
+    <div class="sec-hd"><span class="sec-lbl">O que fazer agora — em ordem</span><div class="sec-line"></div></div>
+    <div class="acoes-list">
+      <div class="ac urg"><div class="ac-num">1</div><div><div class="ac-tag">Urgente</div><div class="ac-title">Desligar o crosspost automático para o Facebook</div><div class="ac-desc">Configurações → Contas vinculadas → Facebook → desativar. Enquanto estiver ligado, todos os dados estão distorcidos.</div></div></div>
+      <div class="ac urg"><div class="ac-num">2</div><div><div class="ac-tag">Urgente</div><div class="ac-title">Reformular o hook do Reel B2B</div><div class="ac-desc">Trocar "Procurando um Fornecedor?" por: <strong>"A maioria das revendedoras perde dinheiro porque não sabe escolher o fornecedor certo."</strong></div></div></div>
+      <div class="ac imp"><div class="ac-num">3</div><div><div class="ac-tag">Importante</div><div class="ac-title">CTA nos últimos 3 segundos de todo Reel</div><div class="ac-desc">"Manda pra sua amiga que quer começar a revender" · "Comenta QUERO se quer ser parceira" · "Salva esse vídeo — vai precisar depois."</div></div></div>
+      <div class="ac imp"><div class="ac-num">4</div><div><div class="ac-tag">Importante</div><div class="ac-title">Reformular a bio com CTA visível sem expandir</div><div class="ac-desc">Primeiras 3 linhas: fábrica + pedido mínimo + link direto para WhatsApp. Com 8.175 visitas/mês, um CTA mais claro pode dobrar os cliques.</div></div></div>
+      <div class="ac imp"><div class="ac-num">5</div><div><div class="ac-tag">Importante</div><div class="ac-title">Ressuscitar os Stories — 3 interativos por semana</div><div class="ac-desc">Enquete de produto, caixa de perguntas, bastidor rápido. Stories frios reduzem o alcance de Reels e Feed em até 40%.</div></div></div>
+      <div class="ac ok"><div class="ac-num">6</div><div><div class="ac-tag">Planejamento</div><div class="ac-title">Reorganizar os Destaques do perfil</div><div class="ac-desc">Primeiro destaque: Depoimentos / Revendedoras. Segundo: Como Comprar. "Logo marca" vai para o fim — não converte nenhum lead.</div></div></div>
+    </div>
+  </section>
+
+  <!-- METAS -->
+  <section>
+    <div class="sec-hd"><span class="sec-lbl">Metas — próximos 30 dias</span><div class="sec-line"></div></div>
+    <div class="metas-grid">
+      <div class="meta-c"><div class="meta-v">+1.500</div><div class="meta-l">Novos seguidores</div><div class="meta-s">Qualificados, não vazios</div></div>
+      <div class="meta-c"><div class="meta-v">200k+</div><div class="meta-l">Contas alcançadas</div><div class="meta-s">Hoje: 170k</div></div>
+      <div class="meta-c"><div class="meta-v">3.500</div><div class="meta-l">Toques no link</div><div class="meta-s">Hoje: 2.296</div></div>
+      <div class="meta-c"><div class="meta-v">20–60</div><div class="meta-l">Leads qualificados</div><div class="meta-s">Via DM dos Reels B2B</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="ftr-t">Dashboard gerado para <strong>@cjotarasteirinhas</strong> · Análise orgânica · Maio 2026</div>
+</footer>
+
+</body>
+</html>
