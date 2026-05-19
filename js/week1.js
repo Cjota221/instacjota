@@ -791,10 +791,20 @@ function renderWeek1Scripts() {
   const root = document.getElementById("week1Scripts");
   if (!root) return;
 
-  root.innerHTML = week1Scripts.map((item) => `
-    <article class="roteiro-card rc-${item.format.toLowerCase().includes("story") ? "story" : "post"}">
+  root.innerHTML = week1Scripts.map((item) => {
+    const rawFormat = item.format.toLowerCase();
+    const formatKey = rawFormat.includes("storie")
+      ? "stories"
+      : rawFormat.includes("carrossel")
+        ? "carrossel"
+        : "reel";
+    const formatLabel = formatKey === "stories" ? "STORIES" : formatKey === "carrossel" ? "CARROSSEL" : "REEL";
+
+    return `
+    <article class="roteiro-card rc-${formatKey}" data-format="${formatKey}">
       <div class="rc-header">
         <div>
+          <div class="rc-format ${formatKey}">${formatLabel}</div>
           <div class="rc-kicker">${escapeHtml(item.day)} · ${escapeHtml(item.time)}</div>
           <div class="rc-title">${escapeHtml(item.format)} — ${escapeHtml(item.type)}</div>
           <div class="rc-tag">${escapeHtml(item.tag)} · ${escapeHtml(item.expert)}</div>
@@ -811,7 +821,19 @@ function renderWeek1Scripts() {
         <div class="rc-cta">CTA: ${escapeHtml(item.cta)}</div>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
+
+  document.querySelectorAll(".format-filter").forEach((button) => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.format;
+      document.querySelectorAll(".format-filter").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      document.querySelectorAll(".roteiro-card").forEach((card) => {
+        card.classList.toggle("is-hidden", selected !== "all" && card.dataset.format !== selected);
+      });
+    });
+  });
 }
 
 renderWeek1Scripts();
