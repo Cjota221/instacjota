@@ -228,18 +228,23 @@ section{margin-bottom:52px;}
 
 /* ROTEIROS DETALHADOS */
 .roteiros-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.roteiro-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;}
+.roteiro-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;}
 .rc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
-.rc-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.3;}
+.rc-kicker{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin-bottom:5px;}
+.rc-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.3;overflow-wrap:anywhere;}
 .rc-meta{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--pink);background:var(--pink-light);padding:4px 8px;border-radius:999px;white-space:nowrap;}
 .rc-block{font-size:12px;color:var(--text-2);line-height:1.6;}
-.rc-list{padding-left:18px;margin:0;list-style-type:disc;color:var(--text-2);}
+.rc-hook{background:var(--bg-2);border-left:3px solid var(--pink);padding:10px 12px;border-radius:8px;}
+.rc-list{padding-left:18px;margin:0;color:var(--text-2);}
+.rc-steps{list-style:decimal;}
 .rc-list li{margin-bottom:8px;}
 .rc-tag{font-size:11px;font-weight:700;color:var(--text);background:var(--bg-3);padding:4px 8px;border-radius:14px;display:inline-block;}
 .rc-footer{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;}
-.rc-cta{font-size:12px;font-weight:700;color:white;background:var(--pink);padding:8px 12px;border-radius:14px;}
+.rc-cta{font-size:12px;font-weight:700;color:white;background:var(--pink);padding:8px 12px;border-radius:14px;max-width:100%;overflow-wrap:anywhere;}
 .rc-note{font-size:11px;color:var(--text-3);}
+.rc-story{border-color:var(--border-pink);background:linear-gradient(180deg,#fff 0%,var(--pink-light) 100%);}
 @media(max-width:860px){.roteiros-grid{grid-template-columns:1fr;}}
+@media(max-width:560px){.rc-header{display:block;}.rc-meta{display:inline-block;margin-top:8px;white-space:normal;}.roteiro-card{padding:16px;}.rc-footer{display:block;}.rc-cta{display:inline-block;margin-top:10px;}}
 
 @media print{
   :root{color-adjust:exact;}
