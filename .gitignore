@@ -3,3 +3,6 @@
 
 # Temporary Netlify CLI output
 .netlify-sites.txt
+
+# Generated publish snapshots
+published.html
