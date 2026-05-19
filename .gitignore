@@ -1,0 +1,5 @@
+# Local Netlify folder
+.netlify
+
+# Temporary Netlify CLI output
+.netlify-sites.txt

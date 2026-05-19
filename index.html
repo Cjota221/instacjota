@@ -23,6 +23,7 @@
       <a href="#acoes">Ações</a>
     </nav>
     <div class="hdr-tag">Maio 2026</div>
+    <button class="hdr-print" type="button" onclick="printDashboard()">Imprimir / PDF</button>
   </div>
 </header>
 
@@ -93,6 +94,31 @@
         <div class="tc-nome">Prova social</div>
         <div class="tc-desc">Revendedora em câmera com o pedido recebido. Alta autenticidade, gera identificação em quem pensa em começar a revender.</div>
         <div class="tc-tags"><span class="tag tg">Autenticidade</span><span class="tag tp">Identificação</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRATÉGIA -->
+  <section id="estrategia">
+    <div class="sec-hd"><span class="sec-lbl">Direcionamento estratégico</span><div class="sec-line"></div></div>
+    <div class="melhora-grid">
+      <div class="mc pos">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mc-title">DNA de crescimento</div></div>
+        <div class="mc-items">
+          <div class="mc-item">A força da CJ hoje é: <strong>empresa real + reconstrução + oportunidade para mulheres comuns</strong>. A rasteirinha é o veículo; a história é o motor.</div>
+        </div>
+      </div>
+      <div class="mc neg">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><div class="mc-title">Função de cada formato</div></div>
+        <div class="mc-items">
+          <div class="mc-item"><strong>Bastidor emocional</strong> = crescimento. <strong>B2B educativo</strong> = intenção. <strong>Prova social</strong> = confiança. <strong>Humor</strong> = topo com CTA.</div>
+        </div>
+      </div>
+      <div class="mc verd">
+        <div class="mc-hd"><div class="mc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="mc-title">Stories como distribuição</div></div>
+        <div class="mc-items">
+          <div class="mc-item">Stories não vendem primeiro. Eles avisam ao algoritmo quem ainda liga pra você. Sequência ideal: abertura, bastidor, interação, produto em contexto, próximo capítulo.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -186,12 +212,12 @@
     <div class="cal-wrap">
       <div class="cal-hdr">
         <div>
-          <div class="cal-hdr-t">Agenda semanal — 6 conteúdos por dia</div>
-          <div class="cal-hdr-s">4 Reels + 2 Carrosséis · Horários: 9h · 11h · 13h · 15h · 18h · 20h</div>
+          <div class="cal-hdr-t">Semana 1 — CJ Rasteirinhas | 19/05 a 25/05</div>
+          <div class="cal-hdr-s">6 conteúdos por dia: 4 Reels, 1 Carrossel e Stories. Direção estratégica e foco no funil de revenda.</div>
         </div>
         <div class="cal-totals">
-          <div class="cal-tot"><div class="cal-tot-v">4</div><div class="cal-tot-l">Reels/dia</div></div>
-          <div class="cal-tot"><div class="cal-tot-v">2</div><div class="cal-tot-l">Carrosséis/dia</div></div>
+          <div class="cal-tot"><div class="cal-tot-v">5</div><div class="cal-tot-l">Reels/dia</div></div>
+          <div class="cal-tot"><div class="cal-tot-v">1</div><div class="cal-tot-l">Carrosséis/dia</div></div>
         </div>
       </div>
       <div class="cal-leg">
@@ -209,61 +235,330 @@
       <div class="cal-grid">
         <!-- SEG -->
         <div class="cal-col">
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Rotina da manhã / reconstruindo</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">3 modelos mais vendidos</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Quanto preciso pra começar?</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Pedido revendedora em câmera</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Lançamento + preço atacado</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Reflexão / vitória do dia</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Conversão</div><div class="sl-desc">Fechamos a loja física / reconstrução</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">5 modelos que toda revendedora deve ter</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Erro de precificação que faz revendedora perder dinheiro</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Rasteirinha de R$25 que vira R$79</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">Abertura, estoque e enquete</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora começou com 5 pares</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- TER -->
         <div class="cal-col">
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora + cidade de origem</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Como precificar sua revenda</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Situação cômica MEI</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Processo de fabricação</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Personalização com sua marca</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Dá pra vender no interior?</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Não precisa de CNPJ para comprar no atacado</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Modelos até R$35 para começar</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Trabalhar em casa é mais difícil do que parece</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Modelo premium que parece mais caro</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">estoque, pergunta e teaser</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Cliente perguntando endereço físico</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- QUA -->
         <div class="cal-col">
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Desafio da semana / superação</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Tendências da coleção</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora mostra como vende</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Como funciona o frete atacado</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Modelos + variações de cor</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">O que aprendi essa semana</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora do Acre vendendo pelo Brasil</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Modelos que giram mais para iniciante</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">O maior erro de quem começa a revender</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Rasteirinha que parece de shopping</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">Quiz, bastidor e perguntas</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Mensagem de cliente sobre loja física</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- QUI -->
         <div class="cal-col">
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Fornecedor errado = prejuízo</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Antes e depois da revendedora</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Pedido especial sendo preparado</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">POV: você é todos os depts.</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Sandálias + preço por atacado</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora de outro estado</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Conversão</div><div class="sl-desc">Parte do empreendedorismo que ninguém mostra</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">3 erros que fazem revendedora perder dinheiro</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Produto barato não precisa parecer barato</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Não precisa vender muito para começar</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">Enquete, pedido e caixa perguntas</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Pedido indo para Pernambuco</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- SEX -->
         <div class="cal-col">
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Novidades da reconstrução</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Quanto lucra uma revendedora?</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Depoimento em câmera</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Pedido mínimo e como funciona</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Coleção destaque da semana</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-en"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Engraçado</div><div class="sl-desc">Sexta do empreendedor</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Rasteirinha de fim de semana</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Pedido inteligente com 5 pares</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Estoque de fábrica não para</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">O que não fazer ao começar a revender</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">Enquete, produto e perguntas</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Revendedora fez recompra depois do primeiro pedido</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- SAB -->
         <div class="cal-col">
-          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Pedido chegando na revendedora</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Os mais pedidos do mês</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Embalando pedidos / rotina</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Private label — sua marca</div><span class="sl-fmt">Reel</span></div>
-          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Novidades chegando</div><span class="sl-fmt">Carrossel</span></div>
-          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Bastidores</div><div class="sl-desc">Semana em retrospecto</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-pr"><div class="sl-t"><div class="sl-td"></div>09h</div><div class="sl-tipo">Prova social</div><div class="sl-desc">Sábado também tem pedido saindo</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>11h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Rasteirinhas que combinam com qualquer look</div><span class="sl-fmt">Carrossel</span></div>
+          <div class="sl sl-ca"><div class="sl-t"><div class="sl-td"></div>13h</div><div class="sl-tipo">Produto</div><div class="sl-desc">Essa cor aqui não encalha</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-b2"><div class="sl-t"><div class="sl-td"></div>15h</div><div class="sl-tipo">B2B educ.</div><div class="sl-desc">Começar pequeno é o caminho</div><span class="sl-fmt">Reel</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>18h</div><div class="sl-tipo">Stories</div><div class="sl-desc">Enquete, produto e teaser de catálogo</div><span class="sl-fmt">Stories</span></div>
+          <div class="sl sl-em"><div class="sl-t"><div class="sl-td"></div>20h</div><div class="sl-tipo">Conversão</div><div class="sl-desc">Pedido que representa reconstrução</div><span class="sl-fmt">Reel</span></div>
         </div>
         <!-- DOM -->
         <div class="cal-col">
-          <div class="sl-rest">Domingo livre — planejamento e gravações da semana seguinte</div>
+          <div class="sl-rest">Domingo leve — Stories de domingo, café da manhã, caixa de perguntas e planejamento da próxima semana.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROTEIROS DETALHADOS -->
+  <section id="roteiros">
+    <div class="sec-hd"><span class="sec-lbl">Roteiros detalhados</span><div class="sec-line"></div></div>
+    <div class="roteiros-grid">
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">19/05 — 09h00 | Reel Conversão real</div>
+            <div class="rc-tag">Hook + emocional</div>
+          </div>
+          <div class="rc-meta">Feito para gravar</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “Essa aqui foi uma das decisões mais dolorosas da nossa empresa…”
+        </div>
+        <ul class="rc-list">
+          <li>Fachada antiga / foto da loja física com texto “fechamos nossa loja física”.</li>
+          <li>Caixas em casa + estoque improvisado: narração de reconstrução.</li>
+          <li>Carol separando pedidos: “ninguém viu essa parte”.</li>
+          <li>Pedidos reais saindo para revendedoras do Brasil.</li>
+          <li>Fechamento com Carol olhando para a câmera: recomeçar diferente.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: reconstrução real e retorno do negócio.</div>
+          <div class="rc-cta">CTA: DM “ATACADO”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">19/05 — 11h00 | Carrossel Produto</div>
+            <div class="rc-tag">Vendas B2B</div>
+          </div>
+          <div class="rc-meta">Lead de catálogo</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “5 modelos que TODA revendedora deveria ter no estoque”.
+        </div>
+        <ul class="rc-list">
+          <li>Slide 1: modelo em uso + título “5 rasteirinhas que vendem MUITO”.</li>
+          <li>Slides 2–6: destaque de cada modelo com preço e benefício.</li>
+          <li>Slide 7: pedido mínimo de apenas 5 pares.</li>
+          <li>Slide 8: CTA para comentar “CATÁLOGO”.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: investimento baixo e giro rápido.</div>
+          <div class="rc-cta">CTA: comenta “CATÁLOGO”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">19/05 — 13h00 | Reel B2B educativo</div>
+            <div class="rc-tag">Qualificação</div>
+          </div>
+          <div class="rc-meta">Save alto</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “Tem revendedora perdendo dinheiro sem perceber nisso aqui…”
+        </div>
+        <ul class="rc-list">
+          <li>Carol com calculadora e texto “erro MUITO comum”.</li>
+          <li>Mostrar custo do produto, frete, embalagem e taxa.</li>
+          <li>Conta errada + texto “e esquece disso tudo aqui”.</li>
+          <li>Conta correta + mensagem de lucro real.</li>
+          <li>Produto bonito: “produto certo + margem certa”.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: a conta errada é o problema real.</div>
+          <div class="rc-cta">CTA: salva esse vídeo</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">19/05 — 20h00 | Reel Prova social</div>
+            <div class="rc-tag">Identificação</div>
+          </div>
+          <div class="rc-meta">Lead iniciante</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “Ela começou com só 5 pares…”
+        </div>
+        <ul class="rc-list">
+          <li>Mostrar pedido pequeno + texto “primeiro pedido dela”.</li>
+          <li>Produtos do pedido com narração de começo pequeno.</li>
+          <li>Separação e embalagem pronta.</li>
+          <li>Mensagem final: começar é mais importante que começar gigante.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: prova social para revendedora iniciante.</div>
+          <div class="rc-cta">CTA: comenta “QUERO”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">20/05 — 09h00 | Reel B2B educativo</div>
+            <div class="rc-tag">Quebra de objeção</div>
+          </div>
+          <div class="rc-meta">Save + DM</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “Você NÃO precisa de CNPJ pra comprar no atacado.”
+        </div>
+        <ul class="rc-list">
+          <li>Mostrar mensagem de cliente + resposta de Carol.</li>
+          <li>Explicar pedido mínimo, sem CNPJ e envio para todo o Brasil.</li>
+          <li>Mostrar caixas saindo e reforçar a simplicidade.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: remover barreiras para começar.</div>
+          <div class="rc-cta">CTA: DM “COMEÇAR”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">20/05 — 20h00 | Reel Engraçado</div>
+            <div class="rc-tag">Topo de funil</div>
+          </div>
+          <div class="rc-meta">Alcance + funil</div>
+        </div>
+        <div class="rc-block">
+          <strong>Hook:</strong> “Cliente: ‘passa o endereço da loja que eu vou aí pagar pessoalmente’”.
+        </div>
+        <ul class="rc-list">
+          <li>Carol lendo mensagem e reagindo com desespero.</li>
+          <li>Texto: “como explicar que agora a loja virou a minha casa”.</li>
+          <li>Mostrar estoque dentro de casa + realidade do negócio atual.</li>
+          <li>Fechar com “a loja tá aqui dentro, mas enviamos para o Brasil inteiro”.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: humor com claridade comercial.</div>
+          <div class="rc-cta">CTA: DM “ATACADO”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">21/05 — Quarta-feira | Agenda completa</div>
+            <div class="rc-tag">Dia estratégico</div>
+          </div>
+          <div class="rc-meta">Prova, produto e interação</div>
+        </div>
+        <div class="rc-block">
+          <strong>Dia:</strong> mostrar que vender rasteirinha funciona no Brasil inteiro e que revenda é um negócio real.
+        </div>
+        <ul class="rc-list">
+          <li>09h — Prova social: revendedora no Acre vende para o país inteiro.</li>
+          <li>11h — Carrossel produto: modelos seguros para iniciantes.</li>
+          <li>13h — B2B educativo: maior erro de quem começa a revender.</li>
+          <li>15h — Produto: rasteirinha premium que parece de shopping.</li>
+          <li>18h — Stories: quiz, bastidor e perguntas.</li>
+          <li>20h — Engraçado: cliente sem loja física querendo comprar pessoalmente.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: reconhecimento nacional + prova social + caminho seguro.</div>
+          <div class="rc-cta">CTA: comenta sua cidade</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">22/05 — Quinta-feira | Dia da verdade</div>
+            <div class="rc-tag">Emocional + educativo</div>
+          </div>
+          <div class="rc-meta">Autenticidade</div>
+        </div>
+        <div class="rc-block">
+          <strong>Dia:</strong> mostrar o lado real do negócio e ensinar a não cometer os mesmos erros no início.
+        </div>
+        <ul class="rc-list">
+          <li>09h — Conversão real: o cansaço e a realidade de empreender sem glamour.</li>
+          <li>11h — Carrossel B2B: 3 erros que fazem revendedora perder dinheiro.</li>
+          <li>13h — Produto: modelo barato que parece caro.</li>
+          <li>15h — B2B educativo: começar pequeno e reinvestir.</li>
+          <li>18h — Stories: enquete, bastidor e caixa de perguntas.</li>
+          <li>20h — Prova social: pedido indo para Pernambuco.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: cada etapa do dia sustenta a narrativa de crescimento real.</div>
+          <div class="rc-cta">CTA: salva esse post</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">23/05 — Sexta-feira | Dia do pedido inteligente</div>
+            <div class="rc-tag">Produto + bastidor</div>
+          </div>
+          <div class="rc-meta">Venda + conexão</div>
+        </div>
+        <div class="rc-block">
+          <strong>Dia:</strong> mostrar que revenda não precisa ser complicada e que pedido inteligente é a base para lucro.
+        </div>
+        <ul class="rc-list">
+          <li>09h — Produto: rasteirinha que vende muito no fim de semana.</li>
+          <li>11h — Carrossel produto: como montar pedido com 5 pares.</li>
+          <li>13h — Bastidor: estoque em movimento, etiquetas e caixas.</li>
+          <li>15h — B2B educativo: o que NÃO fazer quando começar a revender.</li>
+          <li>18h — Stories: modelo em destaque e perguntas da audiência.</li>
+          <li>20h — Prova social: cliente que já fez recompra.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: prática + produto + prova social para fechar a semana.</div>
+          <div class="rc-cta">CTA: comenta “QUERO”</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">24/05 — Sábado | Sábado de saída</div>
+            <div class="rc-tag">Entrega e desejo</div>
+          </div>
+          <div class="rc-meta">Aceleração</div>
+        </div>
+        <div class="rc-block">
+          <strong>Dia:</strong> trazer prova de entrega e desirabilidade dos produtos no fim de semana.
+        </div>
+        <ul class="rc-list">
+          <li>09h — Prova social: pedido saindo no sábado.</li>
+          <li>11h — Carrossel produto: rasteirinhas que combinam com qualquer look.</li>
+          <li>13h — Produto: cores seguras que não encalham.</li>
+          <li>15h — B2B educativo: começar pequeno é o caminho certo.</li>
+          <li>18h — Stories: teaser de catálogo e interação direta.</li>
+          <li>20h — Conversão real: o que parece só uma caixa é reconstrução.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: sábado é prova de entrega e impulso para a próxima semana.</div>
+          <div class="rc-cta">CTA: manda pra uma empreendedora</div>
+        </div>
+      </div>
+
+      <div class="roteiro-card">
+        <div class="rc-header">
+          <div>
+            <div class="rc-title">25/05 — Domingo | Stories leves</div>
+            <div class="rc-tag">Aquecimento</div>
+          </div>
+          <div class="rc-meta">Conexão</div>
+        </div>
+        <div class="rc-block">
+          <strong>Dia:</strong> usar o domingo para humanizar, ouvir a audiência e preparar a semana seguinte.
+        </div>
+        <ul class="rc-list">
+          <li>Café da manhã/domingo com tom leve e futuro do negócio.</li>
+          <li>Caixa de perguntas: “o que você quer aprender sobre revenda?”.</li>
+          <li>Mostrar o modelo favorito da semana.</li>
+          <li>Enquete: “você começaria revendendo?” SIM / TENHO MEDO.</li>
+          <li>Teaser: “amanhã vou mostrar uma coisa que ninguém vê na CJ”.</li>
+        </ul>
+        <div class="rc-footer">
+          <div class="rc-note">Legenda: construir hábito e manter a audiência aquecida.</div>
+          <div class="rc-cta">CTA: responde aqui</div>
         </div>
       </div>
     </div>
@@ -333,6 +628,11 @@
   <div class="ftr-t">Dashboard gerado para <strong>@cjotarasteirinhas</strong> · Análise orgânica · Maio 2026</div>
 </footer>
 
+<script>
+function printDashboard(){
+  window.print();
+}
+</script>
 </body>
 </html>
 
